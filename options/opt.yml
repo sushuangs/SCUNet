@@ -14,13 +14,13 @@ train:
   # log
   logs_per_step: 100
   # save
-  saveTrainImgs_per_step: 100      # train
-  saveTestImgs_per_step: 100        # test
+  saveTrainImgs_per_step: 1000      # train
+  saveTestImgs_per_step: 1000        # test
   saveStacked: true         # true
   #
 
 val:
-  val_per_epoch: 5
+  val_per_epoch: 1
   logs_per_step: 100
   saveValImgs_in_step: 100            # val
 

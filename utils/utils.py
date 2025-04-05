@@ -204,7 +204,7 @@ def get_model_resume(opt, device):
     optimizer = torch.optim.Adam(network.parameters(), lr=opt['lr']['start_lr'])
     scheduler = LambdaLR(
         optimizer,
-        lr_lambda=lambda iteration: 0.5 ** (iteration // 200000)
+        lr_lambda=lambda iteration: 0.5 ** (iteration // 40000)
     )
 
     start_epoch = 0
