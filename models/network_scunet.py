@@ -260,8 +260,8 @@ class SCUNet(nn.Module):
 if __name__ == '__main__':
 
     # torch.cuda.empty_cache()
-    net = SCUNet()
+    net = SCUNet(input_resolution=128)
 
-    x = torch.randn((2, 3, 64, 128))
+    x = torch.randn((2, 3, 128, 128))
     x = net(x)
     print(x.shape)

@@ -1,0 +1,83 @@
+#
+train/test: train      # train or test
+
+#
+experiment_name: gtos_HiDDeN_I_35      
+
+#
+train:
+  #
+  batch_size: 24
+  num_workers: 16
+  epoch: 500
+  start_step: 2000
+  # log
+  logs_per_step: 100
+  # save
+  saveTrainImgs_per_step: 100      # train
+  saveTestImgs_per_step: 100        # test
+  saveStacked: true         # true
+  #
+
+val:
+  val_per_epoch: 5
+  logs_per_step: 100
+  saveValImgs_in_step: 100            # val
+
+L_images:
+  min_std: 0
+  max_std: 75
+  range_type: 0 #0:[-1,1] 1:[0, 1]
+
+early_stopping:
+  patience: 50
+  verbose: true
+  checkpoint_name: gtos_HiDDeN_I_35  
+
+
+#
+lr:
+  #
+  start_lr: 0.0001
+  # optimizer: SGD  
+  optimizer: Adam
+
+
+#
+path:
+  # logs
+  results_folder:        './runs'
+
+  # gtos
+  train_folder:       '/data/experiment/model/HiDDeN/Hidden_35_gtos/train'
+  test_folder:        '/data/experiment/model/HiDDeN/Hidden_35_gtos/val'
+  #
+
+resume:
+  is_resume: True
+  only_network: False
+  checkpoint_path: '/data/experiment/model/SCUNet/runs/gtos_HiDDeN_I_n25_35_new-2025-04-03-16:35-train/checkpoint/gtos_GN_n25--epoch-20.pth'
+  network:
+    input_resolution: 128
+    drop_path_rate: 0.1
+    in_nc: 3
+    config: [4,4,4,4,4,4,4]
+    dim: 64
+
+#
+datasets:
+  H: 128
+  W: 128
+  range_type: 0 #0:[-1,1] 1:[0, 1]
+
+#### network (blocks)
+network:
+  input_resolution: 128
+  drop_path_rate: 0.1
+  in_nc: 3
+  config: [4,4,4,4,4,4,4]
+  dim: 64
+
+
+
+
